@@ -1,0 +1,28 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#percent {
+  position: absolute;
+  top: 150px;
+}
+
+.div-condition {
+  position: absolute;
+  left: 300px;
+}
+
+.render-form {
+  position: absolute;
+  display: flex; 
+}
+
+.result-render {
+  position: absolute;
+  top: 300px;
+}
+
+#btn-conditions {
+  margin: 10px 15px
+}
