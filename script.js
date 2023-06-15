@@ -44,7 +44,7 @@ const DeQuy = (condition, value, count) => {
 
   if (count > arrText.length) return 0;
   else {
-    arrText[count - 1] = arrText[count - 1].replace(condition, value)
+    arrText[count - 1] = arrText[count - 1].replace(condition, value.toFixed(1))
 
     value = value + value*(percent.value/100)
 
@@ -70,6 +70,12 @@ const render = () => {
     if (arrConditions[i] === "lvup") {
       for (var j = 0; j < arrText.length; j++) {
         arrText[j] = arrText[j].replace(arrConditions[i], (j + 1).toString())
+      }
+    }
+
+    if (arrConditions[i] === "*lvup") {
+      for (var j = 0; j < arrText.length; j++) {
+        arrText[j] = arrText[j].replace(arrConditions[i], (arrChangedConditions[i]*(j + 1)))
       }
     }
 
