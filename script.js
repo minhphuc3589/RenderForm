@@ -69,7 +69,7 @@ const render = () => {
   for (var i = 0; i < arrConditions.length; i++) {
     if (arrConditions[i] === "lvup") {
       for (var j = 0; j < arrText.length; j++) {
-        arrText[j] = arrText[j].replace(arrConditions[i], (j + 1).toString())
+        arrText[j] = arrText[j].replace(arrConditions[i], (j + 1))
       }
     }
 
