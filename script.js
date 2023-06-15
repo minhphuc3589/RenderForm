@@ -46,7 +46,7 @@ const DeQuy = (condition, value, count) => {
   else {
     arrText[count - 1] = arrText[count - 1].replace(condition, value)
 
-    value = value + value
+    value = value + value*(percent.value/100)
 
     DeQuy(condition, value, count + 1)
   }
