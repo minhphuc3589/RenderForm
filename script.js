@@ -73,13 +73,12 @@ const render = () => {
       }
     }
 
-    if (arrConditions[i] === "*lvup") {
+    var position = arrConditions[i].indexOf("\*lvup") + 4
+    if (arrConditions[i][position] === "p") {
       for (var j = 0; j < arrText.length; j++) {
-        arrText[j] = arrText[j].replace(arrConditions[i], (arrChangedConditions[i]*(j + 1)))
+        arrText[j] = arrText[j].replace(arrConditions[i], parseFloat(arrChangedConditions[i]*(j + 1)))
       }
-    }
-
-    if (typeof parseFloat(arrChangedConditions[i]) === "number") {
+    } else if (typeof parseFloat(arrChangedConditions[i]) === "number") {
       DeQuy(arrConditions[i], parseFloat(arrChangedConditions[i]), count)
     } else {
       for (var j = 0; j < arrText.length; j++) {
