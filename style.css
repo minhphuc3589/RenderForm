@@ -3,26 +3,40 @@ html {
   width: 100%;
 }
 
-#percent {
+.gender-name, #percent, .div-condition, .render-form, .result-render {
   position: absolute;
+}
+
+.gender-name {
+/*  display: flex;*/
+  margin-top: 10px;
+  margin-left: 900px;
+}
+
+#name-gender-input {
+  margin-left: 10px;
+}
+
+#percent {
   top: 150px;
 }
 
 .div-condition {
-  position: absolute;
   left: 300px;
 }
 
 .render-form {
-  position: absolute;
   display: flex; 
 }
 
 .result-render {
-  position: absolute;
   top: 300px;
 }
 
 #btn-conditions {
   margin: 10px 15px
+}
+
+#condition {
+  margin-left: 10px;
 }
