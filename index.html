@@ -13,21 +13,29 @@
   <script src="script.js"></script>
 
   <div class="render-form">
-    <textarea type="text" name="text-input" id="text-input"></textarea>
+    <textarea type="text" name="text-input" id="text-input" placeholder="Code mẫu"></textarea>
     <button onclick="render()" id="rendering">Render</button>
   </div>
 
   <input type="text" id="percent" placeholder="Phần trăm cộng thêm...">
 
   <div class="div-condition">
+    Điều kiện:
     <input type="text" id="condition" placeholder="Dòng cần thay đổi..." />
     <button onclick="handleConditions()" id="btn-conditions">Thêm điều kiện</button>
     <input type="text" id="changed-condition" placeholder="Thay đổi thành..." />
     <div id="add-condition-text"></div>
   </div>
 
+  <div class="gender-name">
+    Name Gender: <input id="name-gender-input" placeholder="Thêm tên vào đây">
+    <button onclick="handleNameGender()" id="name-gender">Thêm tên</button>
+    <button onclick="deleteNameGender()" id="delete-name-gender">Xoá dòng cuối</button>
+    <div id="add-name-gender"></div>
+  </div>
+
   <div class="result-render">
-    <textarea type="text" name="text-result" id="text-result"></textarea>
+    <textarea type="text" name="text-result" id="text-result" placeholder="Code sau khi render"></textarea>
   </div>
 </body>
 
