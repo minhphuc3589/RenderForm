@@ -7,8 +7,9 @@ iConditions = 0
 iNameGender = 1
 
 window.addEventListener("load", () => {
-  percent = document.getElementById("percent")
-  percent.value = "100"
+  document.getElementById("percent").value = "100"
+  document.getElementById("lv-start").value = "1"
+  document.getElementById("lv-end").value = "101"
   
 })
 
@@ -78,30 +79,19 @@ const handleConditions = () => {
   }
 }
 
-const DeQuy = (condition, value, count) => {
-  percent = document.getElementById("percent")
-
-  if (count > arrText.length) return 0;
-  else {
-    arrText[count - 1] = arrText[count - 1].replace(condition, value.toFixed(1))
-
-    value = value + value*(percent.value/100)
-
-    DeQuy(condition, value, count + 1)
-  }
-
-}
 
 const render = () => {
   text = document.getElementById("text-input")
   result = document.getElementById("text-result")
+  levelStart = parseInt(document.getElementById("lv-start").value, 16)
+  levelEnd = parseInt(document.getElementById("lv-end").value, 16)
+  percent = document.getElementById("percent")
 
-  var count = 1
   arrText = []
   result.value = ""
 
-  if (arrText.length < 101) {
-    for (var i = 0; i < 101; i++) {
+  if (arrText.length < levelEnd) {
+    for (var i = 0; i < Math.abs(levelEnd - levelStart) + 1; i++) {
       arrText.push(text.value)
     }
   }
@@ -124,13 +114,22 @@ const render = () => {
         }
         break
 
+      case "def_lvup":
+        for (var j = 0; j < arrText.length; j++) {
+          arrText[j] = arrText[j].replace(arrConditions[i], levelStart)
+          levelStart += 1
+        }
+        break
+
       default:
         if (arrConditions[i][position] === "p") {
           for (var j = 0; j < arrText.length; j++) {
             arrText[j] = arrText[j].replace(arrConditions[i], parseFloat(arrChangedConditions[i]*(j + 1)))
           }
-        } else if (typeof parseFloat(arrChangedConditions[i]) === "number") {
-          DeQuy(arrConditions[i], parseFloat(arrChangedConditions[i]), count)
+        } else if (typeof arrConditions[i] === "string" && typeof parseFloat(arrChangedConditions[i]) === "number") {
+          for (var j = 0; j < arrText.length; j++) {
+            arrText[j] = arrText[j].replace(arrConditions[i], parseFloat(arrChangedConditions[i])*Math.pow((1 + parseFloat(percent.value)/100), j))
+          }
         } else {
           for (var j = 0; j < arrText.length; j++) {
             arrText[j] = arrText[j].replace(arrConditions[i], arrChangedConditions[i])
