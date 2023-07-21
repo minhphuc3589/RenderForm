@@ -3,8 +3,16 @@ html {
   width: 100%;
 }
 
-.gender-name, #percent, .div-condition, .render-form, .result-render {
+.gender-name, #percent, .div-condition, .render-form, .result-render, .level {
   position: absolute;
+}
+
+.level {
+  top: 175px;
+}
+
+#lv-start, #lv-end {
+  width: 100px;
 }
 
 .gender-name {
@@ -18,7 +26,7 @@ html {
 }
 
 #percent {
-  top: 150px;
+  top: 125px;
 }
 
 .div-condition {
