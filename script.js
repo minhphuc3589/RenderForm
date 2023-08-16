@@ -83,14 +83,14 @@ const handleConditions = () => {
 const render = () => {
   text = document.getElementById("text-input")
   result = document.getElementById("text-result")
-  levelStart = parseInt(document.getElementById("lv-start").value, 16)
-  levelEnd = parseInt(document.getElementById("lv-end").value, 16)
+  levelStart = parseInt(document.getElementById("lv-start").value, 10)
+  levelEnd = parseInt(document.getElementById("lv-end").value, 10)
   percent = document.getElementById("percent")
 
   arrText = []
   result.value = ""
 
-  if (arrText.length < levelEnd) {
+  if (arrText.length < Math.abs(levelEnd - levelStart) + 1) {
     for (var i = 0; i < Math.abs(levelEnd - levelStart) + 1; i++) {
       arrText.push(text.value)
     }
@@ -107,7 +107,7 @@ const render = () => {
         }
         break
 
-      case "name_gender":
+      case "name":
         for (var j = 0; j < arrText.length; j++) {
           if (j >= arrNameGender.length) arrText[j] = arrText[j].replace(arrConditions[i], (j + 1))
           else arrText[j] = arrText[j].replace(arrConditions[i], arrNameGender[j])
@@ -118,6 +118,17 @@ const render = () => {
         for (var j = 0; j < arrText.length; j++) {
           arrText[j] = arrText[j].replace(arrConditions[i], levelStart)
           levelStart += 1
+        }
+        break
+
+      case "rand_name":
+        for (var j = 0; j < arrText.length; j++) {
+          var randomValue = Math.floor(Math.random() * (arrNameGender.length - 1))
+          var name = arrNameGender[randomValue]
+
+          arrText[j] = arrText[j].replace(arrConditions[i], name)
+          arrNameGender = arrNameGender.filter(value => value !== name)
+          console.log(arrNameGender)
         }
         break
 
