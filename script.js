@@ -139,7 +139,7 @@ const render = () => {
           }
         } else if (typeof arrConditions[i] === "string" && typeof parseFloat(arrChangedConditions[i]) === "number") {
           for (var j = levelStart; j < arrText.length; j++) {
-            arrText[j] = arrText[j].replace(arrConditions[i], parseFloat(arrChangedConditions[i])*Math.pow((1 + parseFloat(percent.value)/100), j))
+            arrText[j-1] = arrText[j-1].replace(arrConditions[i], parseFloat(arrChangedConditions[i])*Math.pow((1 + parseFloat(percent.value)/100), j))
           }
         } else {
           for (var j = 0; j < arrText.length; j++) {
