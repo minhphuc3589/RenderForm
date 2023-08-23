@@ -135,7 +135,7 @@ const render = () => {
       default:
         if (arrConditions[i][position] === "p") {
           for (var j = 0; j < arrText.length; j++) {
-            arrText[j] = arrText[j].replace(arrConditions[i], (parseFloat(arrChangedConditions[i]*(j + 1))).toFixed(1))
+            arrText[j] = arrText[j].replace(arrConditions[i], (parseFloat(arrChangedConditions[i]*(j + 1))))
           }
         } else if (typeof arrConditions[i] === "string" && typeof parseFloat(arrChangedConditions[i]) === "number") {
           for (var j = levelStart; j < arrText.length; j++) {
