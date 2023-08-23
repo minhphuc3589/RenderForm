@@ -107,7 +107,7 @@ const render = () => {
         }
         break
 
-      case "name":
+      case "name_gender":
         for (var j = 0; j < arrText.length; j++) {
           if (j >= arrNameGender.length) arrText[j] = arrText[j].replace(arrConditions[i], (j + 1))
           else arrText[j] = arrText[j].replace(arrConditions[i], arrNameGender[j])
