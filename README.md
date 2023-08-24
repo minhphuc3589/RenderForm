@@ -1,6 +1,6 @@
 # RenderForm
 ## Key word
-- *lvup: **Tăng dần theo _giá trị ban đầu_**
+- <tên bất kì>*lvup: **Tăng dần theo _giá trị ban đầu_**
 | VD: *0.5 -> 1.0 -> 1.5*
 
 - lvup: **Tăng dần theo thứ tự từ 1 -> n**
