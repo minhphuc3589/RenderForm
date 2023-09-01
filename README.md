@@ -6,7 +6,7 @@
 - lvup: **Tăng dần theo thứ tự từ 1 -> n**
 | VD: *1 -> 2 -> 3 -> 4 -> n*
 
-- name: **Gắn tên theo thứ tự đã nhập**
+- name_gender: **Gắn tên theo thứ tự đã nhập**
 | VD: *Name_1 = John, Name_2 = Hana -> John, Hana*
 
 - def_lvup: **Tăng dần theo thứ tự từ Level Start -> Level End**
